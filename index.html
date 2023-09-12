@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch api</title>
+
+</head>
+<body>
+      
+  
+<script>
+    let body = document.querySelector('body')
+      fetch("https://dummyjson.com/products")
+      .then(Response => Response.json() )
+      .then((Result) =>{ console.log(Result.products[0].images[0])
+      show(Result.products)});
+      
+      function show(print)
+    {
+        for(let i=0;i<print.length;i++){
+
+                   let h1 = document.createElement('h1');
+                   let img = document.createElement("img")
+                   img.src = print[i].images[0]
+                   body.append(img);
+                   h1.innerHTML = print[i].title
+                   body.append(h1);
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>
